@@ -1,6 +1,3 @@
-
----
-
 Java JSON Parser
 
 Un progetto didattico in Java per imparare a lavorare con JSON ↔ tipi Java.
@@ -78,9 +75,8 @@ Struttura del codice
 
 Java_JSONParser/
  ├── src/
- │    └── Main.java      ← esempi di parsing e dependencies
- └── pom.xml
- 
-
----
+ │   ├── Main.java
+ │   └── ClaseTest.java  ← classe di supporto
+ ├── pom.xml
+ └── README.md
 
