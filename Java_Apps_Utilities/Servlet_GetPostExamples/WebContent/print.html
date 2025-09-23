@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Envío de parametros</title>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h1 id="out">Enviar json mediante js fetch a servlet pasando valores e imprimir la respuesta html en la proxima pagina, no redireccion</h1> 
+<button onclick="auto()">Automatico</button>
+<script>
+
+
+ function auto(){
+ var data = {
+		  "parametro3": "parametro1automatico",
+		"parametro4": "parametro2automatico",
+		};
+			  try {
+							    fetch("Servlet2", {
+							      method: 'POST',
+							      redirect: 'follow',
+							      headers: {
+									'Content-Type': 'application/json'
+															  },
+								body: JSON.stringify(data)
+							    })
+							    .then(response => response.text())
+									  .then(html => document.documentElement.innerHTML = html//; console.log(html)									 	  
+									  )	 
+			  }
+			      catch (error) {
+						    console.error("Error en la solicitud:", error);
+									}
+ 		}
+
+			  
+ </script>
+</body>
+</html>

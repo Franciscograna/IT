@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Envío de parametros</title>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<button onclick="auto()">Automatico</button>
+<script>
+
+
+ function auto() {
+	
+	 var data = {
+   		  "parametro3": "parametro1automatico",
+   		"parametro4": "parametro2automatico",
+   		};
+				  try {
+								    fetch("Servlet3", {
+								      method: 'POST',
+								    // redirect: 'follow',
+								      headers: {
+										'Content-Type': 'application/json'
+																  },
+									body: JSON.stringify(data)
+								    }).then(response => {
+								    	  if (response.ok) {
+								    		    return response.text();
+								    		  } else {
+								    		    throw new Error("Error en la solicitud");
+								    		  }
+								    		})
+								    		.then(redirectUrl => {
+								    		  window.location.href = redirectUrl;
+								    		})
+								    		.catch(error => {
+								    		  console.error("Error en la solicitud:", error);
+								    		});
+						
+										
+										
+				  } 
+	 			      catch (error) {
+							    console.error("Error en la solicitud:", error);
+	 				     }; 
+ }
+
+			  
+ </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Axios</title>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+cargando...
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+
+
+ function auto() {
+	
+	 var data = {
+   		  "parametro3": "parametro1automatico",
+   		"parametro4": "parametro2automatico",
+   		};
+				  try {
+					  axios.post('Servlet3',data)
+					  .then(response => {
+					   window.location.href = response.data;
+					   })
+					    	
+										
+				  } 
+	 			      catch (error) {
+							    console.error("Error en la solicituda xios:", error);
+	 				     }; 
+ }
+
+ window.setTimeout(function() {
+	 auto()
+	 
+	}, 1000);	  
+ </script>
+</body>
+</html>

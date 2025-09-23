@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Json</title>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h5>
+cargando...
+ </h5>   	
+       
+      	
+      	
+<script> 	
+       	 function send() {
+ 	             
+         var data = {
+        		  "inputp": "contenido del json 4"
+        		};
+         try{
+         fetch("Form3", {
+        	  method: 'POST',
+        	  headers: {
+        	    'Content-Type': 'application/json'
+        	  },
+        	  body: JSON.stringify(data)
+        	})  
+        	.then(response => response.text())
+			  .then(html => document.documentElement.innerHTML = html// console.log(html)									 	  
+			  )	 
+}
+catch (error) {
+    console.error("Error en la solicitud:", error);
+			}   
+ }
+       	 
+     	window.setTimeout(function() {
+     		send()
+     		}, 3000); 
+  </script>
+</body>

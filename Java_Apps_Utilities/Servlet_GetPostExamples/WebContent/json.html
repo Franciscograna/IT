@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Json</title>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+      	
+    	<h1 id="out"></h1> 
+        <h3>Enviar Parametro:</h3>
+        <input id="p1" value="123" required>  <br><br/>
+        <button  onclick="send()">Formulario</button>
+      	<br></br>
+      	
+<script> 	
+       	 function send() {
+ 	     var param1=document.getElementById('p1');
+         var param1V = param1.value;
+         
+         var data = {
+        		  "inputp": param1V,
+        		};
+         try {   
+         fetch("Form3", {
+        	  method: 'POST',
+        	  redirect: 'follow',
+        	  headers: {
+        	    'Content-Type': 'application/json'
+        	  },
+        	  body: JSON.stringify(data)
+        	})   
+        	    .then(response => response.text())
+			  .then(html => document.documentElement.innerHTML = html // console.log(html)									 	  
+			  );
+         } catch (error) {
+			    console.error("Error en la solicitud:", error);
+						}
+         
+ }
+  </script>
+</body>
+
+
+
+
+
+</html>

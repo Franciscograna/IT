@@ -1,0 +1,62 @@
+/* Estilo base */
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #fafafa;
+  color: #333;
+}
+
+/* Formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* espacio entre inputs */
+  padding: 20px;
+  max-width: 400px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Inputs y selects */
+input, select, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #0077cc;
+  outline: none;
+}
+
+/* Botones */
+button, a {
+
+  margin:10px;
+  padding: 10px 16px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  text-decoration:none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+/* Caja de resultados */
+.result-box {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f4f8ff;
+  border: 1px dashed #0077cc;
+  border-radius: 6px;
+  font-size: 14px;
+}

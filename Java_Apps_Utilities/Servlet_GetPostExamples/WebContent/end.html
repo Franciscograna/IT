@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Valores recibidos en url</title>
+<link href="index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1 id="out"></h1> 
+
+
+ <script>
+
+ var parametro1 = null;
+ var parametro2 = null;
+ var parametro3 = null;
+ var parametro4 = null;
+ var inputp = null;
+ var inputg = null;
+ const params = new URLSearchParams(window.location.search);
+ parametro1 = params.get('parametro3');
+ parametro2 = params.get('parametro4');
+ parametro3 = params.get('parametro2');
+ parametro4 = params.get('parametro1');
+ inputp	    = params.get('inputp');
+ inputg	    = params.get('inputg');
+ if (inputp == null){inputp = " - "}
+ if (parametro1 == null){parametro1 = " - "}
+ if (parametro2 == null){parametro2 = " - "}
+ if (parametro3 == null){parametro3 = " - "}
+ if (inputg == null) {inputg = " - "}
+ if (parametro4 == null) {parametro4 = " - "}
+ 
+ var contenido = parametro3+ " " +parametro4+ " " +parametro1+ " " +parametro2+ " " +inputp+ " " +inputg;
+ if ((parametro3===null)&&(parametro4===null)&&(inputp===null)&&(parametro1===null)&&(parametro2===null)){contenido="esperando valores"}
+ var       outHtml = document.getElementById('out');
+ outHtml.innerHTML=contenido;
+  </script>
+</body>
+</html>

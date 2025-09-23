@@ -1,0 +1,39 @@
+<html>
+<head><link href="index.css" rel="stylesheet" type="text/css"></head>
+ <body>
+     <form>
+    <h1 id="out"></h1> 
+        <h3>Parametro 1:</h3>
+        <input id="p1" type="text" name="parametro1" required>
+        <h3>Parametro 2:</h3>
+        <input id="p2" type="text" name="parametro2" required>  <br><br/>
+        <button  onclick="send()">Formulario</button>
+      </form><br></br>
+      </body>
+ <script>
+
+ const params = new URLSearchParams(window.location.search);
+ var parametro1 = params.get('parametro1');
+ var parametro2 = params.get('parametro2');
+
+ var contenido = parametro1+ " " +parametro2;
+ if ((parametro1===null)&&(parametro2===null)){contenido="aspetando valores"}
+ var       outHtml = document.getElementById('out');
+ outHtml.innerHTML=contenido;
+			
+ function send() {
+         var param1=document.getElementById('p1');
+         var param2=document.getElementById('p2');
+         var param1V = param1.value;
+         var param2V = param2.value;
+         const formData = new FormData();
+         formData.append('parametro1', param1V);
+         formData.append('parametro2', param2V);
+         fetch("Servlet", {
+           method: 'POST',
+           body: formData
+         })     
+ }
+
+ </script>
+</html>
