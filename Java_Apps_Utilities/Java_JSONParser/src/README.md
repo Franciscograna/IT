@@ -68,15 +68,3 @@ Output (JSON):
   "eta": 35
 }
 
-
----
-
-Struttura del codice
-
-Java_JSONParser/
- ├── src/
- │   ├── Main.java
- │   └── ClaseTest.java  ← classe di supporto
- ├── pom.xml
- └── README.md
-
