@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Formulario post a telegram</title>
+</head>
+
+<body>
+  <script>
+  
+  function send(){
+	  	  
+	    const chatId = 2101237282; // Reemplaza con el ID de chat correcto
+	    const param1 = document.getElementById('p1').value;
+	    const param2 = document.getElementById('p2').value;
+
+	    const data = {
+	      chat_id: chatId,
+	      text: param1+param2
+	    };
+	    
+	    fetch("https://api.telegram.org/bot6314259224:AAF5Dvzdx38UJ9_vv-2Rnq88zYTOJT2HvuU/sendMessage", {
+	      method: 'GET',
+	      headers: {
+	        'Content-Type': 'application/json'
+	      },
+	      body: JSON.stringify(data)
+	    })
+	    	  
+  }
+    
+  </script>
+
+<form>
+    <h3>Parametro 1:</h3>
+    <input id="p1" type="text" name="parametro1" required>
+    <h3>Parametro 2:</h3>
+    <input id="p2" type="text" name="parametro2" required>  <br><br/>
+     <button onclick="send()">A Telegram</button>
+  </form><br></br>
+
+  
+</body>
+</html>
