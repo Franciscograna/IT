@@ -32,4 +32,4 @@ Permette di provare facilmente la connessione al file `.sqlite3` e verificare il
 
 ### 3. Output (uscita)
   - per `SELECT`: uscita in consola.
-  - per `INSERT`: si scrive in la DB.
+  - per `INSERT`: si scrive nella DB.
