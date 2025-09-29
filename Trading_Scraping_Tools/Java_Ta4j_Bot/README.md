@@ -29,9 +29,9 @@ Il sistema è suddiviso in più componenti con ruoli specifici.
 
 
 ### 4. **Enum States / Modes / Targets**
-- **States** → definiscono lo stato attuale della strategia (es. *WAITING, BUY, SELL*).  
-- **Modes** → regolano il comportamento del bot (es. *LIVE, PAPER, TEST*).  
-- **Targets** → obiettivi o configurazioni operative (es. coppia di trading, timeframe).  
+- **States** → definiscono lo stato attuale della request ( BUY_SENT, BUY_FILLED, BUY_CLOSED*).  
+- **Modes** → regolano il comportamento del bot (es. *ONLINE, OFFLINE, STOPPED*).  
+- **Targets** → obiettivi di Take Profit  (TP_1, TP_2, TP_3).  
 
 ---
 
@@ -39,10 +39,10 @@ Il sistema è suddiviso in più componenti con ruoli specifici.
 
 ### Input
 - Serie di candele (*klines*) recuperate da Binance.  
-- Parametri di configurazione (modi, target, timeframe).  
+- Parametri di configurazione (SYMBOL, quanti candele, timeframe).  
 
 ### Processo
-1. **MainBot** crea indicatori (es. MACD) a partire dalle candele.  
+1. **MainBot** crea indicatori (es. MACD) a partire dalle candele 1H.  
 2. Analizza i pattern e scrive lo **stato corrente** (tendenza lunga, segnali tecnici).  
 3. **Trigger** legge lo stato, verifica condizioni specifiche e genera segnali.  
 4. **Interact** esegue le operazioni reali o simulate in base agli **enum States e Modes**.  
