@@ -9,16 +9,16 @@ Il sistema è suddiviso in più componenti con ruoli specifici.
 ## 🔄 Componenti principali
 
 ### 1. **MainBot**
-- Legge le *klines* (candele 1H) da Binance.  
+- Legge le *klines* (candele `1H`) da Binance.  
 - Costruisce serie temporali (`BarSeries`) e indicatori TA4J (es. **MACD**, medie mobili, ecc.).  
 - Elabora la **tendenza lunga** (trend di fondo).  
 - Scrive lo stato corrente in un file.  
 
 ### 2. **Trigger**
-- Legge le *klines* (candele 15m) da Binance.
+- Legge le *klines* (candele `15m`) da Binance.
 -  Costruisce serie temporali (`BarSeries`) e indicatori TA4J (es. **MACD**, medie mobili, ecc.).  
 - Legge i dati/stato scritti dal **MainBot**.  
-- Riconosce eventi di interesse (pattern, incroci MACD, segnali trend).  
+- Riconosce eventi di interesse (pattern MACD).  
 - Invia un’**allerta** (es. SMS, Telegram, ecc.) quando viene rilevato un segnale.  
 
 ### 3. **Interact**
