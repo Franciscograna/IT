@@ -16,7 +16,7 @@ Il sistema è suddiviso in più componenti con ruoli specifici.
 
 ### 2. **Trigger**
 - Legge le *klines* (candele 15m) da Binance.
-- - Costruisce serie temporali (`BarSeries`) e indicatori TA4J (es. **MACD**, medie mobili, ecc.).  
+-  Costruisce serie temporali (`BarSeries`) e indicatori TA4J (es. **MACD**, medie mobili, ecc.).  
 - Legge i dati/stato scritti dal **MainBot**.  
 - Riconosce eventi di interesse (pattern, incroci MACD, segnali trend).  
 - Invia un’**allerta** (es. SMS, Telegram, ecc.) quando viene rilevato un segnale.  
