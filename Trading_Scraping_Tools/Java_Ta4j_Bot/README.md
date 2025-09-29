@@ -9,19 +9,24 @@ Il sistema è suddiviso in più componenti con ruoli specifici.
 ## 🔄 Componenti principali
 
 ### 1. **MainBot**
-- Legge le *klines* (candele) da Binance.  
+- Legge le *klines* (candele 1H) da Binance.  
 - Costruisce serie temporali (`BarSeries`) e indicatori TA4J (es. **MACD**, medie mobili, ecc.).  
 - Elabora la **tendenza lunga** (trend di fondo).  
-- Scrive lo stato corrente in una risorsa condivisa.  
+- Scrive lo stato corrente in un file.  
 
 ### 2. **Trigger**
+- Legge le *klines* (candele 15m) da Binance.
+- - Costruisce serie temporali (`BarSeries`) e indicatori TA4J (es. **MACD**, medie mobili, ecc.).  
 - Legge i dati/stato scritti dal **MainBot**.  
 - Riconosce eventi di interesse (pattern, incroci MACD, segnali trend).  
 - Invia un’**allerta** (es. SMS, Telegram, ecc.) quando viene rilevato un segnale.  
 
 ### 3. **Interact**
-- Contiene le operazioni di alarma ().  
-- È il punto di contatto tra la logica di analisi e l’esecuzione delle alarm e flags.  
+- Gestisce le **operazioni di allerta** (SMS, Telegram).  
+- Coordina la comunicazione tra la logica di analisi e le azioni esterne.  
+- Si occupa di leggere e scrivere file per condividere stati o segnali tra i moduli(Main-Trigger).
+- Funziona come **punto centrale di esecuzione** per le notifiche e le operazioni collegate ai segnali generati dal bot.
+
 
 ### 4. **Enum States / Modes / Targets**
 - **States** → definiscono lo stato attuale della strategia (es. *WAITING, BUY, SELL*).  
@@ -43,25 +48,10 @@ Il sistema è suddiviso in più componenti con ruoli specifici.
 4. **Interact** esegue le operazioni reali o simulate in base agli **enum States e Modes**.  
 
 ### Output
-- Segnali operativi chiari (BUY / SELL / HOLD).  
+- Segnali operativi chiari (BUY / SELL ).  
 - Alert inviati via SMS, Telegram o altri canali configurati.  
-- Possibile esecuzione diretta di ordini (se abilitato in modalità *LIVE*).  
+- Possibile esecuzione diretta di ordini (se abilitato ).  
 
 ---
 
-## 📂 Esempio di utilizzo
 
-```java
-MainBot mainBot = new MainBot();
-Trigger trigger = new Trigger();
-Interact interact = new Interact();
-
-// Analisi del trend e segnali
-mainBot.runAnalysis();
-String stato = mainBot.getTrendState();
-
-// Generazione allerta
-if (trigger.checkSignal(stato)) {
-    trigger.sendAlert("Segnale MACD BUY rilevato su BTCUSDT!");
-    interact.executeTrade(State.BUY, Target.BTCUSDT);
-}
