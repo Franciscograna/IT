@@ -54,6 +54,6 @@ Il sistema è suddiviso in più componenti con ruoli specifici.
 
 ---
 
-(pic.png)
+![](pic.png)
 
 
