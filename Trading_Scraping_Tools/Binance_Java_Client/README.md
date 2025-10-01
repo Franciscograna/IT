@@ -31,4 +31,29 @@
 - 🗑️ **Cancellare tutti gli ordini**  
 - 🔍 **Consultare un ordine**  
 
+## 🔑 1. Configurazione delle API Keys
+
+Genera le chiavi dal tuo account Binance e **autorizza l’IP**.  
+Inseriscile nel codice:
+
+```java
+private static final String API_KEY = "YOUR_API_KEY";
+private static final String SECRET_KEY = "YOUR_SECRET_KEY";
+```
+## 💰 2. Impostare il simbolo di trading
+
+Il simbolo della coppia da tradare deve essere impostato in ogni funzione.
+Ad esempio, per BTC/USDC:
+
+```java
+String symbol = "BTCUSDC";
+```
+## 🛠️ 3. Inizializzare l’oggetto API
+```java
+Api api = new Api();
+//🔻 Vendita (SELL) – Ordine a Mercato
+api.Post("SELL", "MARKET", "90.123.0");
+//❌ Cancellare tutti gli ordini
+api.DeleteAll();
+```
 
