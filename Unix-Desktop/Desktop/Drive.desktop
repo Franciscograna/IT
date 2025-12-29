@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Google Drive
+Exec=firefox-esr https://drive.google.com/drive/u/0/
+Icon=chrome-aghbiahbpaijignceidepookljebhfak-Default
+Terminal=false
+Type=Application
+Categories=Application;
+Comment=
+Path=
+StartupNotify=false

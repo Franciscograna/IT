@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=OpenAI
+Exec=firefox https://chatgpt.com
+Icon=/usr/share/icons/ePapirus-Dark/48x48/apps/org.gnome.Robots.svg
+Terminal=false
+Type=Application
+Categories=Application;
+Comment=
+Path=
+StartupNotify=false

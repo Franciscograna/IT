@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Firefox file explorer
+Exec=firefox-esr ///home/
+Icon=folder-saved-search
+Terminal=false
+Type=Application
+Categories=Application;
+Comment=
+Path=
+StartupNotify=false

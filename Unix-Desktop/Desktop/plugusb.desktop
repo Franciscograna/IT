@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=USB
+Exec=sh -c '/home/"$USER"/Desktop/script/plugusb.sh'
+Icon=/usr/share/icons/Papirus-Dark/48x48@2x/apps/live-usb-kernel-updater.svg
+Terminal=false
+Type=Application
+Categories=Application;
+Comment=Plug Unplug usb
+Path=/
+StartupNotify=true

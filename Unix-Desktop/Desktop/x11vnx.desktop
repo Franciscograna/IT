@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=X11VNC Server
+Exec=x11vnc -gui tray=setpass -rfbport PROMPT -bg -o %%HOME/.x11vnc.log.%%VNCDISPLAY
+Icon=/usr/share/icons/ePapirus-Dark/48x48/apps/vnc.svg
+Terminal=false
+Type=Application
+Categories=Application;
+Comment=Share this desktop by VNC
+Path=
+StartupNotify=false

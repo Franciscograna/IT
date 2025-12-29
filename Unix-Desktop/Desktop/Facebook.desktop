@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Facebook
+Exec=firefox-esr https://www.facebook.com/
+Icon=chrome-kippjfofjhjlffjecoapiogbkgbpmgej-Default
+Terminal=false
+Type=Application
+Categories=Application;
+Comment=FB
+Path=
+StartupNotify=false

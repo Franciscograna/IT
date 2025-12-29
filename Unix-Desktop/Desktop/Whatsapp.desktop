@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=WhatsApp Web
+Exec=firefox-esr https://web.whatsapp.com/
+Icon=/usr/share/icons/ePapirus-Dark/48x48/apps/com.github.eneshecan.WhatsAppForLinux.svg
+Terminal=false
+Type=Application
+Categories=Application;
+Comment=
+Path=
+StartupNotify=false

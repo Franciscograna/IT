@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=reboot
+Exec=sh -c '/home/"$USER"/Desktop/script/wifi.sh'
+Icon=/usr/share/icons/Papirus-Dark/48x48@2x/categories/system-reboot.svg
+Terminal=false
+Type=Application
+Categories=Application;
+Comment=reboot system
+Path=/home/franci/Documents/yad-desktop/
+StartupNotify=false

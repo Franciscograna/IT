@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Wifi
+Exec=sh -c '/home/"$USER"/Desktop/script/wifi.sh'
+Icon=/usr/share/icons/ePapirus-Dark/48x48/devices/network-wireless-hotspot.svg
+Terminal=false
+Type=Application
+Categories=Application;
+Comment=
+Path=/
+StartupNotify=false

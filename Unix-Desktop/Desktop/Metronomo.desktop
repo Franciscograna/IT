@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=GTick
+Exec=/usr/bin/gtick
+Icon=/usr/share/icons/hicolor/64x64/apps/gtick.xpm
+Terminal=false
+Type=Application
+Categories=Application;
+Comment=a GTK-based metronome
+Path=
+StartupNotify=false

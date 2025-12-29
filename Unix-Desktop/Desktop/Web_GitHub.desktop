@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=GitHub
+Exec=firefox https://github.com
+Icon=chrome-mjoklplbddabcmpepnokjaffbmgbkkgg-Default
+Terminal=false
+Type=Application
+Categories=Application;
+Comment=
+Path=
+StartupNotify=false

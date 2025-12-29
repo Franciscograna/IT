@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=DB Browser for SQLite
+Exec=sqlitebrowser %f
+Icon=/usr/share/icons/Papirus-Dark/48x48@2x/apps/oracle-sqldeveloper.svg
+Terminal=false
+Type=Application
+Categories=Application;
+Comment=DB Browser for SQLite is a light GUI editor for SQLite databases
+Path=
+StartupNotify=false

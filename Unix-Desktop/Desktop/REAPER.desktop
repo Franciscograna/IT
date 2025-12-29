@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Reaper
+Comment=Multimedia
+Comment[pt]=Um metrônomo baseado em GTK
+Comment[pt-br]=Um metrônomo baseado em GTK
+Exec=reaper
+Icon=/usr/share/icons/Papirus-Dark/48x48@2x/apps/cockos-reaper.svg
+Terminal=false
+Type=Application
+Categories=GTK;AudioVideo;Audio;
+GenericName[pt_BR]=
+Path=
+StartupNotify=false

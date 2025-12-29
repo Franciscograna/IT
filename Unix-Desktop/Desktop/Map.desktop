@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Google Maps
+Exec=firefox-esr https://www.google.com/maps
+Icon=chrome-mnhkaebcjjhencmpkapnbdaogjamfbcj-Default
+Terminal=false
+Type=Application
+Categories=Application;
+Comment=Map
+Path=
+StartupNotify=false

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Google Docs
+Exec=firefox-esr https://docs.google.com/
+Icon=/usr/share/icons/ePapirus-Dark/48x48/apps/google-docs.svg
+Terminal=false
+Type=Application
+Categories=Application;
+Comment=Google Docs
+Path=
+StartupNotify=false
