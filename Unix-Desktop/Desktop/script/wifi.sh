@@ -11,7 +11,7 @@ SCAN=$(nmcli -t -f SSID dev wifi | sed '/^$/d')
 
 LIST=""
 while IFS= read -r SSID; do
-    LIST="$LIST \"$SSID\""
+    LIST="$LIST "$SSID" "
 done <<< "$SCAN"
 
 echo $LIST
@@ -22,9 +22,8 @@ ACTION=$(yad --title="WiFi" \
             --text="Red actual: <b>$CURRENT</b>" --text-align=center \
             --button="Conectar!:0" \
             --button="Desconectar!:1" \
-            --button="Actualizar listas:2" \
             --button="Salir:3" \
-            --list --column="SSID" --column="Icon:IMG"  --undecorated \
+            --list --column="SSID"   --undecorated \
             $LIST)
 
 BTN=$?
