@@ -5,16 +5,9 @@ CURRENT=$(nmcli -t -f ACTIVE,SSID dev wifi | grep "^yes" | cut -d: -f2)
 [ -z "$CURRENT" ] && CURRENT="Ninguna"
 
 # Escanear redes
-SCAN=$(nmcli -t -f SSID dev wifi | sed '/^$/d')
+SCAN=$(nmcli -t -f SSID dev wifi | sed '/^$/d' | sort -u)
 
-# Convertir lista para YAD
-
-LIST=""
-while IFS= read -r SSID; do
-    LIST="$LIST "$SSID" "
-done <<< "$SCAN"
-
-echo $LIST
+echo $SCAN
 
 # Ejecutar YAD principal
 ACTION=$(yad --title="WiFi" \
@@ -24,7 +17,7 @@ ACTION=$(yad --title="WiFi" \
             --button="Desconectar!:1" \
             --button="Salir:3" \
             --list --column="SSID"   --undecorated \
-            $LIST)
+            <<<"$SCAN")
 
 BTN=$?
 
@@ -41,10 +34,9 @@ if [ $BTN -eq 0 ]; then
     || yad --error --text="No se pudo conectar a $SSID"
 fi
 
-    echo $PASS;
-    echo $SSID;
+#    echo $PASS;
+#    echo $SSID;
 fi
-
 ### --- BOTÓN 1: Desconectar ---
 if [ $BTN -eq 1 ]; then
     nmcli con down "$(nmcli -t -f NAME con show --active | head -n1)"
