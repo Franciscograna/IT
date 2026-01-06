@@ -1,4 +1,10 @@
-apt install yad stalonetray pasystray xclock hsetroot libreoffice galculator xarchiver openbox papirusdark
+sudo apt update && sudo apt install \
+openbox \
+yad stalonetray pasystray xclock hsetroot \
+papirus-icon-theme \
+libreoffice \
+galculator xarchiver
+
  .xinitrc → starts YAD → YAD shows icons → icons execute scripts/programs
     └────→ starts Openbox
 
