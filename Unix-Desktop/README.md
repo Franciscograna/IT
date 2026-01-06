@@ -8,7 +8,7 @@ galculator xarchiver
  .xinitrc → starts YAD → YAD shows icons → icons execute scripts/programs
     └────→ starts Openbox
 
-﻿weston(wayland) → starts weston.ini → Panel shows icons → icons execute scripts/programs
+﻿weston(wayland) → starts .config/weston.ini → Panel shows icons → icons execute scripts/programs
 
 
 sudo nano /etc/default/cpufrequtils
