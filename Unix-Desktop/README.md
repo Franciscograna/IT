@@ -1,4 +1,5 @@
-﻿.xinitrc → starts YAD → YAD shows icons → icons execute scripts/programs
+apt install yad stalonetray pasystray xclock hsetroot libreoffice galculator xarchiver openbox papirusdark
+ .xinitrc → starts YAD → YAD shows icons → icons execute scripts/programs
     └────→ starts Openbox
 
 ﻿weston(wayland) → starts weston.ini → Panel shows icons → icons execute scripts/programs
