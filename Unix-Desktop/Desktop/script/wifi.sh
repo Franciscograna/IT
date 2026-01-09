@@ -29,9 +29,13 @@ if [ $BTN -eq 0 ]; then
     PASS=$(yad --title="Password" --form --field="Contraseña:":H)
 	PASS=${PASS%%|*}
 
-	if ! nmcli dev wifi connect "$SSID" password "$PASS" >/tmp/wifi.log 2>&1; then
-    nmcli con delete "$SSID" 2>/dev/null
+	if nmcli -t -f NAME con show | grep -qx "$SSID"; then
+    # red ya guardada
     nmcli dev wifi connect "$SSID" >/tmp/wifi.log 2>&1 \
+    || yad --error --text="No se pudo conectar a $SSID"
+else
+    # red nueva
+    nmcli dev wifi connect "$SSID" password "$PASS" >/tmp/wifi.log 2>&1 \
     || yad --error --text="No se pudo conectar a $SSID"
 fi
 
