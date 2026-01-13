@@ -1,67 +1,47 @@
 #!/bin/bash
-
-# Asegurar BT activo
-systemctl is-active --quiet bluetooth || systemctl start bluetooth
-
-bluetoothctl power on >/dev/null
-bluetoothctl agent on >/dev/null
-bluetoothctl default-agent >/dev/null
-
-# Obtener dispositivos
-CONNECTED=$(bluetoothctl devices Connected | awk '{print $2 " | " substr($0,index($0,$3))}')
-PAIRED=$(bluetoothctl paired-devices | awk '{print $2 " | " substr($0,index($0,$3))}')
-AVAILABLE=$(bluetoothctl devices | awk '{print $2 " | " substr($0,index($0,$3))}')
-
-# Marcar estados
-LIST=""
-while read -r line; do
-    MAC=${line%% |*}
-    NAME=${line#*| }
-
-    STATE="Disponible"
-
-    bluetoothctl info "$MAC" | grep -q "Connected: yes" && STATE="Conectado"
-    bluetoothctl info "$MAC" | grep -q "Paired: yes" && [ "$STATE" != "Conectado" ] && STATE="Paired"
-
-    LIST+="$STATE|$NAME|$MAC\n"
-done <<< "$AVAILABLE"
-
-# Mostrar YAD
-ACTION=$(echo -e "$LIST" | yad --list \
+SELECCION=$(bluetoothctl devices | yad --list \
     --title="Bluetooth" \
     --width=500 \
     --height=400 \
-    --column="Estado" \
-    --column="Nombre" \
-    --column="MAC" \
-    --button="Conectar:0" \
-    --button="Desconectar:1" \
-    --button="Pair:2" \
-    --button="Unpair:3" \
-    --button="Salir:9")
+    --column="Dispositivo" \
+    --print-column=1)
 
-BTN=$?
+[ -z "$SELECCION" ] && exit 0
 
-STATE=$(echo "$ACTION" | cut -d'|' -f1)
-NAME=$(echo "$ACTION" | cut -d'|' -f2)
-MAC=$(echo "$ACTION" | cut -d'|' -f3)
+MAC=$(echo "$SELECCION" | awk '{print $2}')
+INFO=$(bluetoothctl info "$MAC")
 
-[ -z "$MAC" ] && exit 0
+yad --text="$INFO" \
+    --title="$SELECCION" \
+    --button="Pair" \
+    --button="UnPair" \
+    --button="Connect" \
+    --button="Disconnect" \
+    --button="Trust" \
+    --button="UnTrust"
 
-case $BTN in
-    0)  # Conectar
-        bluetoothctl connect "$MAC" \
-        || yad --error --text="No se pudo conectar a $NAME"
+RET=$?
+
+case $RET in
+    0)
+        xterm -e bash -c "bluetoothctl pair '$MAC'; echo; read -p 'Presione Enter para cerrar...'"
         ;;
-    1)  # Desconectar
-        bluetoothctl disconnect "$MAC"
+    1)
+        xterm -e bash -c "bluetoothctl remove '$MAC'; echo; read -p 'Presione Enter para cerrar...'"
         ;;
-    2)  # Pair
-        bluetoothctl pair "$MAC" && bluetoothctl trust "$MAC"
+    2)
+        xterm -e bash -c "bluetoothctl connect '$MAC'; echo; read -p 'Presione Enter para cerrar...'"
         ;;
-    3)  # Unpair
-        bluetoothctl remove "$MAC"
+    3)
+        xterm -e bash -c "bluetoothctl disconnect '$MAC'; echo; read -p 'Presione Enter para cerrar...'"
+        ;;
+    4)
+        xterm -e bash -c "bluetoothctl trust '$MAC'; echo; read -p 'Presione Enter para cerrar...'"
+        ;;
+    5)
+        xterm -e bash -c "bluetoothctl untrust '$MAC'; echo; read -p 'Presione Enter para cerrar...'"
+        ;;
+    *)
+        exit 0
         ;;
 esac
-
-exit 0
