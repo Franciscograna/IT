@@ -6,7 +6,7 @@ if [[ $(tty) == /dev/tty1 ]]; then
     case $REPLY in
       1) exec startx ;;
       2) exec weston ;;
-      *) echo "Opción inválida" ;;
+      *) echo "1 or 2" ;;
     esac
   done
 fi
