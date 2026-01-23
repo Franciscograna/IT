@@ -9,9 +9,10 @@ galculator xarchiver
     └────→ starts Openbox
 
 ﻿weston(wayland) → starts .config/weston.ini → Panel shows icons → icons execute scripts/programs
-
+dpkg-reconfigure console-setup
 
 sudo nano /etc/default/cpufrequtils
+#set console font /default/console-setup
 
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 sudo nano /etc/systemd/system/getty@tty1.service.d/override.conf
