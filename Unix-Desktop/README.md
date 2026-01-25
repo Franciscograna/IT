@@ -9,7 +9,9 @@ galculator xarchiver
     └────→ starts Openbox
 
 ﻿weston(wayland) → starts .config/weston.ini → Panel shows icons → icons execute scripts/programs
-dpkg-reconfigure console-setup
+dpkg-reconfigure console-setup /proc/cmdline
+rfkill unblock 0,1 o 2...etc
+batta h -B /devo/ttyS1 -P bcm -S 1500000
 
 sudo nano /etc/default/cpufrequtils
 #set console font /default/console-setup
