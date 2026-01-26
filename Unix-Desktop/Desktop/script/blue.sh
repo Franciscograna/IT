@@ -1,10 +1,17 @@
 #!/bin/bash
+
 SELECCION=$(bluetoothctl devices | yad --list \
-    --title="Bluetooth" \
+    --title="Bluetooth"\
     --width=500 \
     --height=400 \
     --column="Dispositivo" \
-    --print-column=1)
+    --print-column=1 \
+    --button="Scan:9")
+
+if [ $? -eq 9 ]; then
+        x-terminal-emulator -e bash -c   "bluetoothctl scan on"
+fi
+
 
 [ -z "$SELECCION" ] && exit 0
 
@@ -18,7 +25,9 @@ yad --text="$INFO" \
     --button="Connect" \
     --button="Disconnect" \
     --button="Trust" \
-    --button="UnTrust"
+    --button="UnTrust"\
+    --button="Remove"\
+    --button="SCAN:9"
 
 RET=$?
 
@@ -41,7 +50,15 @@ case $RET in
     5)
         xterm -e bash -c "bluetoothctl untrust '$MAC'; echo; read -p 'Presione Enter para cerrar...'"
         ;;
+    6)
+        xterm -e bash -c "bluetoothctl remove '$MAC'; echo; read -p 'Presione Enter para cerrar...'"
+        ;;
     *)
         exit 0
         ;;
 esac
+
+if [ $? -eq 9 ]; then
+        x-terminal-emulator -e bash -c   "bluetoothctl scan on"
+fi
+
