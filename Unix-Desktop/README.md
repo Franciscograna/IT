@@ -14,6 +14,8 @@ dpkg-reconfigure console-setup
 /proc/cmdline
 rfkill unblock 0,1 o 2...etc
 sudo nano /etc/default/cpufrequtils
+#edit etc/fstab
+tmpfs /root/.cache/mozilla tmpfs defaults,noatime,mode=0700,size=1G 0 0
 ###€
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 sudo nano /etc/systemd/system/getty@tty1.service.d/override.conf
