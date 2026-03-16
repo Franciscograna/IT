@@ -4,9 +4,13 @@
 wpa_cli -i wlan0 scan
 sleep 3
 
-# Show networks
-SSID=$(wpa_cli -i wlan0 scan_results | awk 'NR>2 {print $5}' | sort -u | \
-yad --list --title="WiFi" --column="SSID" --height=300 --width=300)
+SSID_LIST=$(wpa_cli -i wlan0 scan_results | awk 'NR>2 {print $5}' | sort -u)
+
+# Mostrar lista en YAD y seleccionar
+SSID=$(echo "$SSID_LIST" | yad --list \
+    --title="Select WiFi" \
+    --column="SSID" \
+    --height=300 --width=300)
 
 [ -z "$SSID" ] && exit
 
