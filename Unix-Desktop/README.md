@@ -1,9 +1,9 @@
 sudo apt update && sudo apt install \
-openbox xdotool network-manager \
+openbox xdotool thunderbird \
 yad stalonetray pasystray xclock hsetroot \
 papirus-icon-theme mint-y-icons \
 libreoffice evince qimgv thunar rfkill \
-galculator xarchiver firefox-esr weston xwayland
+galculator xarchiver firefox-esr weston xwayland wvkbd onboard sway
 
  .xinitrc → starts YAD → YAD shows icons → icons execute scripts/programs
     └────→ starts Openbox
