@@ -50,7 +50,7 @@ case "$SESSION" in
 esac
 fi
 
-
+# DESKTOP Start
 bluetoothctl trust 13:07:10:50:0D:45
 exec startx
 #weston
