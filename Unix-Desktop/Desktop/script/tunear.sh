@@ -3,13 +3,13 @@ yad --width=360 --height=400 --center --title="Configs" --text="Desktop Setup" -
  --field="     :LBL" ""\
  --field="      AUDIO, TOOLBAR::LBL" ""\
  --field="pulse audio system tray, on toolbar:BTN" "bash -c 'pasystray'" \
- --field="Add toolbar:BTN" "bash -c 'stalonetray &'" \
+ --field="Add toolbar:BTN" "bash -c 'stalonetray --geometry=3x5+0+800 &'" \
  --field="close toolbar:BTN" "bash -c 'killall stalonetray &'"\
  --field="      DEVICES::LBL" ""\
- --field="BLUETOOTH:BTN" "bash -c './$home/$user/Desktop/script/blue.sh &'" \
- --field="USB:BTN" "bash -c './$home/$user/Desktop/script/plugusb.sh &'" \
+ --field="BLUETOOTH:BTN" "bash -c '/home/$USER/Desktop/script/blue.sh &'" \
+ --field="USB:BTN" "bash -c '/home/$USER/Desktop/script/plugusb.sh &'" \
  --field="      NETWORKING::LBL" ""\
- --field="WIFI:BTN" "bash -c './$home/$user/Desktop/script/wifi.sh &'" \
+ --field="WIFI:BTN" "bash -c '/home/$USER/Desktop/script/wifi.sh &'" \
  --field="      BACKGROUND::LBL" ""\
  --field="Fondo Blanco:BTN" "bash -c 'hsetroot -solid \"#ffffff\" &'" \
  --field="Fondo Negro:BTN" "bash -c 'hsetroot -solid \"#000000\" &'" \
@@ -34,5 +34,11 @@ yad --width=360 --height=400 --center --title="Configs" --text="Desktop Setup" -
  --field="Reloj N/Magenta Mini:BTN" "bash -c 'xclock -digital -update 1 -bg \"#000000\" -fg \"#FF00FF\" -face \"Monospace-30\" -padding 5 &'" \
  --field="Close xClock:BTN" "bash -c 'killall xclock &'"\
  --field="      SREENSHOOT, RECORD TOOL::LBL" ""\
- --field="screenshot:BTN" "bash -c './$home/$user/Desktop/script/screenshot.sh &'" \
- --field="video:BTN" "bash -c './$home/$user/Desktop/script/grabar.sh &'" \
+ --field="screenshot:BTN" "bash -c '/$home/$USER/Desktop/script/screenshot.sh &'" \
+ --field="video:BTN" "bash -c '/home/$USER/Desktop/script/grabar.sh &'" \
+ --field="CLOSE:BTN" "bash -c '/home/$USER/Desktop/script/close.sh'" \
+ --field="     CHOOSE DESKTOP ENVIRONMENT::LBL" ""\
+ --field="SWAY:BTN" "bash -c '/home/$USER/Desktop/script/change.sh sway'" \
+ --field="WESTON:BTN" "bash -c '/home/$USER/Desktop/script/change.sh weston'"\
+ --field="X11:BTN" "bash -c '/home/$USER/Desktop/script/change.sh startx'" \
+ --field="NO DESKTOP - SERVER MODE:BTN" "bash -c '/home/$USER/Desktop/script/change.sh tty'" \
