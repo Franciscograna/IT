@@ -23,3 +23,18 @@ sudo nano /etc/systemd/system/getty@tty1.service.d/override.conf
 [Service]
 ExecStart=
 ExecStart=-/sbin/agetty --autologin TU_USUARIO --noclear %I 38400 linux
+
+###
+AUDIO
+sudo apt install pulseaudio pulseaudio-utils pavucontrol
+sudo apt install libasound2-plugins
+sudo nano /etc/asound.conf
+
+Contenido recomendado:
+
+pcm.!default {
+    type pulse
+}
+ctl.!default {
+    type pulse
+}
