@@ -1,17 +1,17 @@
 sudo apt update && sudo apt install \
 openbox xdotool thunderbird \
-yad stalonetray pasystray xclock hsetroot \
-papirus-icon-theme mint-y-icons \
+yad stalonetray xclock hsetroot \
+ mint-y-icons \
 libreoffice evince qimgv thunar rfkill \
-galculator xarchiver firefox-esr weston xwayland wvkbd onboard sway
+galculator xarchiver firefox-esr weston xwayland wvkbd sway
 
  .xinitrc → starts YAD → YAD shows icons → icons execute scripts/programs
     └────→ starts Openbox
 
 ﻿weston(wayland) → starts .config/weston.ini → Panel shows icons → icons execute scripts/programs
 ###
-dpkg-reconfigure console-setup 
 /proc/cmdline
+
 rfkill unblock 0,1 o 2...etc
 sudo nano /etc/default/cpufrequtils
 #edit etc/fstab
