@@ -26,15 +26,6 @@ ExecStart=-/sbin/agetty --autologin TU_USUARIO --noclear %I 38400 linux
 
 ###
 AUDIO
-sudo apt install pulseaudio pulseaudio-utils pavucontrol
-sudo apt install libasound2-plugins
+
 sudo nano /etc/asound.conf
-
-Contenido recomendado:
-
-pcm.!default {
-    type pulse
-}
-ctl.!default {
-    type pulse
-}
+set card 0,1 default
